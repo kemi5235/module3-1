@@ -1,0 +1,32 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.biMax = biMax;
+
+var _assert = require("../assert.cjs");
+
+// Copyright 2017-2021 @polkadot/util authors & contributors
+// SPDX-License-Identifier: Apache-2.0
+
+/**
+ * @name biMax
+ * @summary Finds and returns the highest value in an array of bigint.
+ */
+function biMax() {
+  for (var _len = arguments.length, items = new Array(_len), _key = 0; _key < _len; _key++) {
+    items[_key] = arguments[_key];
+  }
+
+  (0, _assert.assert)(items.length >= 1, 'Must provide one or more bigint arguments');
+  let result = items[0];
+
+  for (let i = 1; i < items.length; i++) {
+    if (items[i] > result) {
+      result = items[i];
+    }
+  }
+
+  return result;
+}
